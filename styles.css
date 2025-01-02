@@ -62,7 +62,7 @@ body {
 
 #headerText:hover {
     cursor: pointer;
-    color: rgb(219, 223, 0);
+    color: rgb(4, 0, 255);
 }
 
 #body {
@@ -78,13 +78,14 @@ body {
 .card {
     display:flex;
     flex-direction: column;
-    border: 3px solid black;
+    /* border: 3px solid black; */
     padding: 3vh 2vw;
     font-size: 1.3rem;
     background-color: white;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.226);
     border-radius: 10px;
     text-align: center;
+    border-left: 10px solid rgb(4, 0, 255);
 }
 
 .toggleButton {
@@ -115,7 +116,7 @@ body {
 }
 
 #addBookButton:hover {
-    filter: brightness(0) saturate(100%) invert(76%) sepia(57%) saturate(4019%) hue-rotate(23deg) brightness(87%) contrast(103%);
+    filter: brightness(0) saturate(100%) invert(9%) sepia(82%) saturate(7007%) hue-rotate(248deg) brightness(106%) contrast(149%);
 }
 
 
