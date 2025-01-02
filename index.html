@@ -23,17 +23,36 @@
     </div>
     <dialog id="newBookDialog">
         <form>
-            <div class="entry"><label for="title">Title:</label></div>
-            <input type="text" id="title" name="title" required>
+            <div class="row">
+                <span><label for="title">Title:</label></span>
+                <input class="entry" type="text" id="title" name="title" required>
+            </div>
 
-            <div class="entry"><label for="author">Author:</label></div>
-            <input type="text" id="author" name="author" required>
+            <div class="row">
+                <span><label for="author">Author:</label></span>
+                <input class="entry" type="text" id="author" name="author" required>
+            </div>
 
-            <div class="entry"><label for="pages">Number of Pages:</label></div>
-            <input type="number" id="pages" name="pages" required>
+            <div class="row">
+                <span><label for="pages">Number of Pages:</label></span>
+                <input class="entry" type="number" id="pages" name="pages" required>
+            </div>
 
-            <div class="entry"><label for="completed">Completed?</label></div>
-            <input type="checkbox" id="completed" value="completed" required>
+            <div class="row">
+                <span>
+                    <input type="checkbox" id="completed" value="completed" required>
+                    <label for="completed"> Completed?</label>
+                </span>
+            </div>
+
+            <div class="buttons">
+                <span type="button" class="submit button">
+                    Submit
+                </span>
+                <span type="button" class="cancel button">
+                    Cancel
+                </span>
+            </div>
         </form>
     </dialog>
 </body>

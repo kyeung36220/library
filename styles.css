@@ -71,19 +71,20 @@ body {
     padding: 10vh 10vw;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(auto-fill, minmax(166px, 1fr));
+    grid-template-rows: repeat(auto-fit, 166px);
     gap: 15px;
 }
 
 .card {
-    display:flex;
-    flex-direction: column;
-    /* border: 3px solid black; */
-    padding: 3vh 2vw;
-    font-size: 1.3rem;
+    display:grid;
+    grid-template-columns: 40fr 1fr;
+    grid-template-areas: 
+    "entry closeButton";
+    padding: 0px 0px 3vh 3vw;
+    font-size: 1.2vw;
     background-color: white;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.226);
-    border-radius: 10px;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.226);
+    border-radius: 15px;
     text-align: center;
     border-left: 10px solid rgb(4, 0, 255);
 }
@@ -96,15 +97,26 @@ body {
     cursor: pointer;
 }
 
-.entry {
+.card .entry {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 3vh;
     grid-area: entry;
 }
 
-.closeButton {
+.deleteButtonGrid {
     grid-area: closeButton;
     width: 2vw;
+    padding-right: 0.7vw;
+    padding-left: 0.3vw;
+    padding-top: 1vh;
 }
 
+.deleteButton:hover {
+    filter: brightness(0) saturate(100%) invert(12%) sepia(99%) saturate(7202%) hue-rotate(2deg) brightness(99%) contrast(110%);
+    cursor: pointer;
+}
 
 #addBookButton {
     position: fixed;
@@ -117,6 +129,78 @@ body {
 
 #addBookButton:hover {
     filter: brightness(0) saturate(100%) invert(9%) sepia(82%) saturate(7007%) hue-rotate(248deg) brightness(106%) contrast(149%);
+}
+
+#newBookDialog {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25vh;
+    font-size: 1.3rem;
+    text-align: center;
+    height: 40vh;
+    width: 30vw;
+    padding: 0px;
+}
+
+#newBookDialog form {
+    display: flex;
+    flex-direction: column;
+    padding: 2vh 1vw;
+    gap: 1vh;
+}
+
+#newBookDialog .buttons {
+    display: flex;
+    gap:  10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons .button {
+    color: white;
+    border-radius: 10px;
+    font-size: 1.2vw;
+    padding: 1vh 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.buttons .submit {
+    background-color: rgb(0, 177, 0);
+}
+
+.buttons .submit:hover {
+    background-color: rgb(0, 248, 0);
+}
+
+.buttons .cancel {
+    background-color: rgb(177, 0, 0);
+}
+
+.buttons .cancel:hover {
+    background-color: rgb(255, 0, 0);
+}
+
+#newBookDialog .row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#newBookDialog .buttons {
+    display: flex;
+    align-items: center;
+}
+
+.row .entry {
+    width: 20vw;
+}
+
+.row .checkbox {
+    margin-right: 2vw;
 }
 
 

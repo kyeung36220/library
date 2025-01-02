@@ -7,11 +7,12 @@ button.addEventListener("click", () => {
 })
 const myLibrary = [];
 
-function Book(title, author, pages, completed) {
+function Book(title, author, pages, completed, index) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.completed = completed;
+    this.index = index;
     this.toggleCompleteStatus = function() {
         this.completed = this.completed === "Completed" ? "Not Completed" : "Completed"
     }
@@ -40,6 +41,9 @@ function updateListUI(book) {
             </div>
         </div>
     </div>
+    <div class="deleteButtonGrid">
+        <img class="deleteButton" src="icons/x.svg" alt="Delete Book">
+    </div>
     `
     let toggleButton = card.querySelector(".toggleButton")
     let completedText = card.querySelector(".completedText")
@@ -48,9 +52,19 @@ function updateListUI(book) {
         toggleButton.style.backgroundColor = toggleButton.style.backgroundColor === `green` ? `red` : `green`
         completedText.textContent = `${book.completed}`
     })
+
+    let deleteButton = card.querySelector(".deleteButton")
+    deleteButton.addEventListener("click", () => {
+        if (confirm(`Are you sure you want to delete ${book.title}?`)) {
+            delete myLibrary[book.index]
+            body.removeChild(card)
+        }
+
+    })
+
     body.appendChild(card)
 }
 
-addBookToLibrary(`Hobbit`, `John Smith`, `300`, "Completed")
-addBookToLibrary(`Gobbit`, `Sohn Smith`, `200`, "Not Completed")
+addBookToLibrary(`Vagabond, Vol. 1`, `Takehiko Inoue`, `600`, "Completed")
+addBookToLibrary(`The Book of Five Rings`, `Miyamoto Musashi`, `96`, "Not Completed")
 
