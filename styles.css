@@ -97,6 +97,11 @@ body {
     cursor: pointer;
 }
 
+.toggleButton:hover {
+    height: 20px;
+    width: 20px;
+}
+
 .card .entry {
     display: flex;
     flex-direction: column;

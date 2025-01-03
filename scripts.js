@@ -116,3 +116,8 @@ function updateListUI(book) {
     body.appendChild(card)
 }
 
+addBookToLibrary(`Life of Pi`, `Yann Martel`, 356, "Completed")
+addBookToLibrary(`Atomic Habits`, `James Clear`, 320, "Not Completed")
+addBookToLibrary(`Letters From a Stoic`, `Seneca`, 254, "Completed")
+addBookToLibrary(`Discourses`, `Epictetus`, 544, "Not Completed")
+
