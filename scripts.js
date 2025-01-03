@@ -47,7 +47,7 @@ submitButton.addEventListener("click", (event) => {
     newAuthorLabel.style.color = "black"
     newAuthor.style.border = "2px solid black"
 
-    if (newPages.value <= 0) {
+    if (newPages.value <= 0 || newPages.value > 9999999999) {
         newPagesLabel.style.color = "red"
         newPages.style.border = "2px solid red"
         return
