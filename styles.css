@@ -1,4 +1,4 @@
-* RESET STYLES */
+/* RESET STYLES */
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -68,7 +68,7 @@ body {
 #body {
     grid-area: body;
     background-color: rgb(209, 209, 209);
-    padding: 10vh 10vw;
+    padding: 7vh 10vw;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(auto-fit, 166px);
@@ -101,16 +101,18 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 3vh;
+    margin-top: 2.5vh;
     grid-area: entry;
+    align-items: center;
+    text-align: center;
 }
 
 .deleteButtonGrid {
     grid-area: closeButton;
     width: 2vw;
-    padding-right: 0.7vw;
-    padding-left: 0.3vw;
-    padding-top: 1vh;
+    padding-right: 0.9vw;
+    padding-left: 0.1vw;
+    padding-top: 1.3vh;
 }
 
 .deleteButton:hover {
@@ -141,6 +143,12 @@ body {
     height: 40vh;
     width: 30vw;
     padding: 0px;
+    border: 5px solid black;
+    border-radius: 10px;
+}
+
+#newBookDialog::backdrop {
+    backdrop-filter: blur(1px);
 }
 
 #newBookDialog form {
@@ -148,6 +156,9 @@ body {
     flex-direction: column;
     padding: 2vh 1vw;
     gap: 1vh;
+}
+#newBookDialog .row input {
+    border: 2px solid black;
 }
 
 #newBookDialog .buttons {

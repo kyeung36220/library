@@ -1,10 +1,61 @@
 const body = document.querySelector("#body")
-const button = document.querySelector("#addBookButton")
+const addBookButton = document.querySelector("#addBookButton")
 const newBookDialog = document.querySelector(`#newBookDialog`)
+const newTitle = document.querySelector(`#title`)
+const newTitleLabel = document.querySelector(`#titleLabel`)
+const newAuthor = document.querySelector(`#author`)
+const newAuthorLabel = document.querySelector(`#authorLabel`)
+const newPages = document.querySelector(`#pages`)
+const newPagesLabel = document.querySelector(`#pagesLabel`)
+const completedCheckbox = document.querySelector(`#completed`)
+const submitButton = document.querySelector(`.buttons .submit`)
+const cancelButton = document.querySelector(`.buttons .cancel`)
 
-button.addEventListener("click", () => {
+addBookButton.addEventListener("click", () => {
     newBookDialog.showModal()
 })
+
+cancelButton.addEventListener("click", () => {
+    newBookDialog.close()
+})
+
+submitButton.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    if (newTitle.value.length === 0) {
+        newTitleLabel.style.color = "red"
+        newTitle.style.border = "2px solid red"
+        return
+    }
+    newTitleLabel.style.color = "black"
+    newTitle.style.border = "2px solid black"
+
+    if (newAuthor.value.length === 0) {
+        newAuthorLabel.style.color = "red"
+        newAuthor.style.border = "2px solid red"
+        return
+    }
+    newAuthorLabel.style.color = "black"
+    newAuthor.style.border = "2px solid black"
+
+    if (newPages.value <= 0) {
+        newPagesLabel.style.color = "red"
+        newPages.style.border = "2px solid red"
+        return
+    }
+    newPagesLabel.style.color = "black"
+    newPages.style.border = "2px solid black"
+
+    let completedStatus = completedCheckbox.checked === true ? "Completed" : "Not Completed"
+    addBookToLibrary(
+        newTitle.value,
+        newAuthor.value,
+        newPages.value,
+        completedStatus
+    )
+    newBookDialog.close()
+})
+
 const myLibrary = [];
 
 function Book(title, author, pages, completed, index) {
@@ -31,8 +82,8 @@ function updateListUI(book) {
     buttonColor = book.completed === `Completed` ? `green` : `red`
     card.innerHTML = `
     <div class="entry">
-        <div class='title'>Title: ${book.title}</div>
-        <div class='author'> Author: ${book.author}</div>
+        <div class='title' style="font-size: 1.3vw;"><strong>${book.title}</strong></div>
+        <div class='author'>${book.author}</div>
         <div class='pages'> Total Pages: ${book.pages}</div>
         <div class='completed'>
             <div style="display: flex; gap: 0.5vw; align-items: center; justify-content: center;">
@@ -64,7 +115,4 @@ function updateListUI(book) {
 
     body.appendChild(card)
 }
-
-addBookToLibrary(`Vagabond, Vol. 1`, `Takehiko Inoue`, `600`, "Completed")
-addBookToLibrary(`The Book of Five Rings`, `Miyamoto Musashi`, `96`, "Not Completed")
 

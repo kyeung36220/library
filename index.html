@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Library</title>
     <script src = "scripts.js" defer></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,23 +24,23 @@
     <dialog id="newBookDialog">
         <form>
             <div class="row">
-                <span><label for="title">Title:</label></span>
-                <input class="entry" type="text" id="title" name="title" required>
+                <span><label id="titleLabel" for="title">Title:</label></span>
+                <input placeholder="Title Here" maxlength="22" class="entry" type="text" id="title" name="title" required>
             </div>
 
             <div class="row">
-                <span><label for="author">Author:</label></span>
-                <input class="entry" type="text" id="author" name="author" required>
+                <span><label id="authorLabel" for="author">Author:</label></span>
+                <input placeholder="Author Here" maxlength="22" class="entry" type="text" id="author" name="author" required>
             </div>
 
             <div class="row">
-                <span><label for="pages">Number of Pages:</label></span>
-                <input class="entry" type="number" id="pages" name="pages" required>
+                <span><label id="pagesLabel" for="pages">Number of Pages:</label></span>
+                <input placeholder="# of Pages Here" min="0" class="entry" type="number" id="pages" name="pages" required>
             </div>
 
             <div class="row">
                 <span>
-                    <input type="checkbox" id="completed" value="completed" required>
+                    <input type="checkbox" id="completed" value="completed">
                     <label for="completed"> Completed?</label>
                 </span>
             </div>
