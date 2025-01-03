@@ -1,4 +1,5 @@
 const body = document.querySelector("#body")
+const headerText = document.querySelector("#headerText")
 const addBookButton = document.querySelector("#addBookButton")
 const newBookDialog = document.querySelector(`#newBookDialog`)
 const newTitle = document.querySelector(`#title`)
@@ -13,6 +14,10 @@ const cancelButton = document.querySelector(`.buttons .cancel`)
 
 addBookButton.addEventListener("click", () => {
     newBookDialog.showModal()
+})
+
+headerText.addEventListener("click", () => {
+    window.location.reload()
 })
 
 cancelButton.addEventListener("click", () => {
