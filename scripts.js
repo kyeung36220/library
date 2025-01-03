@@ -1,6 +1,9 @@
+// Screen UI
 const body = document.querySelector("#body")
 const headerText = document.querySelector("#headerText")
 const addBookButton = document.querySelector("#addBookButton")
+
+// Dialog UI
 const newBookDialog = document.querySelector(`#newBookDialog`)
 const newTitle = document.querySelector(`#title`)
 const newTitleLabel = document.querySelector(`#titleLabel`)
@@ -27,6 +30,7 @@ cancelButton.addEventListener("click", () => {
 submitButton.addEventListener("click", (event) => {
     event.preventDefault();
 
+    // checking if all fields in dialog were reasonably filled
     if (newTitle.value.length === 0) {
         newTitleLabel.style.color = "red"
         newTitle.style.border = "2px solid red"
@@ -121,6 +125,7 @@ function updateListUI(book) {
     body.appendChild(card)
 }
 
+// Example books for demonstration purposes
 addBookToLibrary(`Life of Pi`, `Yann Martel`, 356, "Completed")
 addBookToLibrary(`Atomic Habits`, `James Clear`, 320, "Not Completed")
 addBookToLibrary(`Letters From a Stoic`, `Seneca`, 254, "Completed")
