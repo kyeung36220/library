@@ -67,16 +67,50 @@ submitButton.addEventListener("click", (event) => {
 
 const myLibrary = [];
 
-function Book(title, author, pages, completed, index) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.completed = completed;
-    this.index = index;
-    this.toggleCompleteStatus = function() {
-        this.completed = this.completed === "Completed" ? "Not Completed" : "Completed"
+// function Book(title, author, pages, completed, index) {
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+//     this.completed = completed;
+//     this.index = index;
+//     this.toggleCompleteStatus = function() {
+//         this.completed = this.completed === "Completed" ? "Not Completed" : "Completed"
+//     }
+
+// }
+
+class Book {
+    constructor(title, author, pages, completed, index) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.completed = completed;
+        this.index = index;
+        this.toggleCompleteStatus = function() {
+            this.completed = this.completed === "Completed" ? "Not Completed" : "Completed"
+        }
+        
     }
 
+    get getTitle() {
+        return this.title
+    }
+
+    get getAuthor() {
+        return this.author
+    }
+
+    get getPages() {
+        return this.pages
+    }
+
+    get getCompletedStatus() {
+        return this.completed
+    }
+
+    get getIndex() {
+        return this.index
+    }
 }
 
 function addBookToLibrary(title, author, pages, completed) {
@@ -88,16 +122,16 @@ function addBookToLibrary(title, author, pages, completed) {
 function updateListUI(book) {
     let card = document.createElement("div")
     card.className = "card"
-    buttonColor = book.completed === `Completed` ? `green` : `red`
+    buttonColor = book.getCompletedStatus === `Completed` ? `green` : `red`
     card.innerHTML = `
     <div class="entry">
-        <div class='title' style="font-size: 1.3vw;"><strong>${book.title}</strong></div>
-        <div class='author'>${book.author}</div>
-        <div class='pages'> Total Pages: ${book.pages}</div>
+        <div class='title' style="font-size: 1.3vw;"><strong>${book.getTitle}</strong></div>
+        <div class='author'>${book.getAuthor}</div>
+        <div class='pages'> Total Pages: ${book.getPages}</div>
         <div class='completed'>
             <div style="display: flex; gap: 0.5vw; align-items: center; justify-content: center;">
                 <span class='toggleButton' type="button" style="background-color:${buttonColor}"></span>
-                <span class=completedText>${book.completed}</span>
+                <span class=completedText>${book.getCompletedStatus}</span>
             </div>
         </div>
     </div>
@@ -110,13 +144,13 @@ function updateListUI(book) {
     toggleButton.addEventListener("click", () => {
         book.toggleCompleteStatus()
         toggleButton.style.backgroundColor = toggleButton.style.backgroundColor === `green` ? `red` : `green`
-        completedText.textContent = `${book.completed}`
+        completedText.textContent = `${book.getCompletedStatus}`
     })
 
     let deleteButton = card.querySelector(".deleteButton")
     deleteButton.addEventListener("click", () => {
-        if (confirm(`Are you sure you want to delete ${book.title}?`)) {
-            delete myLibrary[book.index]
+        if (confirm(`Are you sure you want to delete ${book.getTitle}?`)) {
+            delete myLibrary[book.getIndex]
             body.removeChild(card)
         }
 
