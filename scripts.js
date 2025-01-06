@@ -67,18 +67,6 @@ submitButton.addEventListener("click", (event) => {
 
 const myLibrary = [];
 
-// function Book(title, author, pages, completed, index) {
-//     this.title = title;
-//     this.author = author;
-//     this.pages = pages;
-//     this.completed = completed;
-//     this.index = index;
-//     this.toggleCompleteStatus = function() {
-//         this.completed = this.completed === "Completed" ? "Not Completed" : "Completed"
-//     }
-
-// }
-
 class Book {
     constructor(title, author, pages, completed, index) {
         this.title = title;
