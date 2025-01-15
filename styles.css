@@ -221,4 +221,8 @@ body {
     margin-right: 2vw;
 }
 
+.error {
+    color: red;
+}
+
 

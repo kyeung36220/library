@@ -22,20 +22,23 @@
         <img class="img" src="icons/plus.svg" alt="Add Book Icon">
     </div>
     <dialog id="newBookDialog">
-        <form>
+        <form novalidate>
             <div class="row">
                 <span><label id="titleLabel" for="title">Title:</label></span>
-                <input placeholder="Title Here" maxlength="22" class="entry" type="text" id="title" name="title" required>
+                <input placeholder="Title Here" minlength="2" maxlength="22" class="entry" type="text" id="title" name="title" required>
+                <div id="titleError" class="error"></div>
             </div>
 
             <div class="row">
                 <span><label id="authorLabel" for="author">Author:</label></span>
-                <input placeholder="Author Here" maxlength="22" class="entry" type="text" id="author" name="author" required>
+                <input placeholder="Author Here" minlength = "2" maxlength="22" class="entry" type="text" id="author" name="author" required>
+                <div id="authorError" class="error"></div>
             </div>
 
             <div class="row">
                 <span><label id="pagesLabel" for="pages">Number of Pages:</label></span>
-                <input placeholder="# of Pages Here" min="0" max="9999999999" class="entry" type="number" id="pages" name="pages" required>
+                <input placeholder="# of Pages Here" min="1" max="9999999999" class="entry" type="number" id="pages" name="pages" required>
+                <div id="pagesError" class="error"></div>
             </div>
 
             <div class="row">

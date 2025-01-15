@@ -31,29 +31,35 @@ submitButton.addEventListener("click", (event) => {
     event.preventDefault();
 
     // checking if all fields in dialog were reasonably filled
-    if (newTitle.value.length === 0) {
+    if (document.getElementById("title").validity.tooShort || document.getElementById("title").value === "") {
         newTitleLabel.style.color = "red"
         newTitle.style.border = "2px solid red"
+        document.getElementById("titleError").textContent = document.getElementById("title").validity.tooShort === true ? "Title too short!" : "Title can't be empty!"
         return
     }
     newTitleLabel.style.color = "black"
     newTitle.style.border = "2px solid black"
+    document.getElementById("titleError").textContent = ""
 
-    if (newAuthor.value.length === 0) {
+    if (document.getElementById("author").validity.tooShort || document.getElementById("author").value === "") {
         newAuthorLabel.style.color = "red"
         newAuthor.style.border = "2px solid red"
+        document.getElementById("authorError").textContent = document.getElementById("author").validity.tooShort === true ? "Author too short!" : "Author can't be empty!"
         return
     }
     newAuthorLabel.style.color = "black"
     newAuthor.style.border = "2px solid black"
+    document.getElementById("author").textContent = ""
 
-    if (newPages.value <= 0 || newPages.value > 9999999999) {
+    if (document.getElementById("pages").validity.rangeUnderflow || document.getElementById("pages").value === "") {
         newPagesLabel.style.color = "red"
         newPages.style.border = "2px solid red"
+        document.getElementById("pagesError").textContent = document.getElementById("pages").validity.rangeUnderflow === true ? "Pages too little!" : "Pages can't be empty!"
         return
     }
     newPagesLabel.style.color = "black"
     newPages.style.border = "2px solid black"
+    document.getElementById("pagesError").textContent = ""
 
     let completedStatus = completedCheckbox.checked === true ? "Completed" : "Not Completed"
     addBookToLibrary(
